@@ -1,0 +1,20 @@
+C:\Users\robo_mis_mfd\AppData\Local\Programs\Python\Python311\python.exe
+
+
+
+
+REPORTS DASHBOARD TIM
+
+
+token = '6649662838:AAEG9OmG4JgzMnTOYBcuw3y1trgHojlf0L8'
+chat = -4047640868
+
+
+
+
+REPORTS TIM
+
+
+token ="6544006198:AAG8OQSnoIgUJCRzh8mBjQomhWDaqJ6guCM" 
+
+chat = -984227354

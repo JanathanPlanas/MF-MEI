@@ -1,0 +1,7 @@
+{
+    "python.analysis.enablePytestSupport": false,
+    "python.analysis.diagnosticSeverityOverrides": {
+        
+        "reportUnusedImport": "information"
+    }
+}
