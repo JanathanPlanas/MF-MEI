@@ -1,5 +1,5 @@
 
-from  helpers.helpers  import (bot ,
+from  helpers.helpers  import (bot_rajada ,
                                last_modified_file_date,
                                last_file,send_message,read_log)
 
@@ -7,7 +7,7 @@ from datetime import datetime
 import os
 
 
-token, chat = bot()
+token, chat = bot_rajada()
 
 file_path =r"\\192.168.10.21\saturno\24 - MIS\07 - TIM\08 - Block List Rajada\05 - Output"
 

@@ -10,14 +10,16 @@ import os
 from selenium import webdriver
 import time
 from datetime import datetime
-
+import glob
+import requests
 
 
 # Define o token do seu bot do Telegram
+# ID -984227354
 def bot():
      
 
-    return "6544006198:AAG8OQSnoIgUJCRzh8mBjQomhWDaqJ6guCM" , -984227354
+    return "6544006198:AAG8OQSnoIgUJCRzh8mBjQomhWDaqJ6guCM" , '-1002120005947'
 
 # Define o chat ID para onde deseja enviar a mensagem (um chat ou usuário específico)
 
@@ -27,6 +29,10 @@ def bot_dash():
     chat = -4047640868
 
     return token, chat
+
+def bot_rajada():
+
+    return "6544006198:AAG8OQSnoIgUJCRzh8mBjQomhWDaqJ6guCM" ,-4089304677 
 
 
 # Define uma função chamada 'send_message' que envia uma mensagem para um chat no Telegram
@@ -104,8 +110,8 @@ def send_document(token, chat_id, file_path, caption=None):
         # Captura e imprime qualquer erro que ocorra durante o envio
         print("Erro no send_document:", e)
 
-    import os
-import requests
+
+
 
 def send_capacity_files(token, chat_id, directory_path):
     """
@@ -299,6 +305,12 @@ def sender_df_photo(token,chat,photo_path):
         print("Erro ao enviar a foto:", response.text)
 
 
+def last_file_glob(file_path):
+    lista_arquivos = glob.glob(os.path.join(file_path, '*'))
+    arquivo_mais_recente = max(lista_arquivos, key=os.path.getctime)
+    return arquivo_mais_recente
+
+
 def last_file(file_path,extension= None):
     """
     Encontra e retorna o caminho do arquivo mais recente em um diretório.
@@ -435,8 +447,15 @@ def read_log(path):
 
     
 # Abra o arquivo de log em modo de leitura
-    with open( path, 'r') as arquivo_log:
-        linhas = arquivo_log.readlines()
+    try:
+        with open(path, 'r', encoding='utf-8') as arquivo_log:
+            linhas = arquivo_log.readlines()
+    except UnicodeDecodeError:
+        print("Não foi possível ler usando UTF-8. Tentando outras codificações.")
+
+        # Tente ler o arquivo usando Latin-1
+        with open(path, 'r', encoding='latin-1') as arquivo_log:
+            linhas = arquivo_log.readlines()
 
     # Use uma função lambda para filtrar as linhas que começam com "Finished"
     finished_lines = str(list(filter(lambda linha: linha.startswith('Finished'), linhas)))

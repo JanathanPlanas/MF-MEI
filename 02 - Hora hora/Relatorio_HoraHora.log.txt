@@ -1,0 +1,19 @@
+AlteryxEngineCmd.exe Version 2023.1.1.123 © Alteryx, Inc. - All Rights Reserved.
+A execução de \\192.168.10.21\SATURNO\24 - MIS\07 - TIM\42 - Acompanhamento Reports Python\02 - Hora hora\Relatorio_HoraHora.yxmd começou
+Alteryx Engine: Executando em baixa prioridade.
+Alteryx Engine: Este é o AMP Engine; executando 4 threads de trabalho; limite de memória 5432.0 MB.
+Alteryx Engine: Os IDs de ferramentas a seguir estão usando uma camada de compatibilidade e1 com 2 ponto(s) de conversão: 82, 95
+ToolId 90: 1 registro foi enviado para a saída
+ToolId 87: 1 registro foi enviado para a saída
+Alteryx Engine: Executando em baixa prioridade.
+ToolId 92: 1 iterações foram executadas
+ToolId 52: 0 registros foram sumarizados em 0 grupos
+ToolId 102: 0 registros eram Verdadeiros e 0 eram Falsos
+Warning - ToolId 63: O campo solicitado "ACTYON" estava ausente e será ignorado.
+Warning - ToolId 63: 6 campos solicitados estavam ausentes e serão ignorados.
+ToolId 64: 0 registros foram sumarizados em 0 grupos
+ToolId 74: 0 registros foram sumarizados em 0 grupos
+Warning - ToolId 75: Não havia registros presentes na fonte
+Warning - ToolId 82: No momento, a ferramenta Layout Visual não lida com o posicionamento de elementos agrupados ou elementos que contêm múltiplos registros.
+Warning - ToolId 93: O estilo "negrito" para a fonte Arial não está disponível. Será utilizado o estilo regular.
+ToolId 93: Z:\24 - MIS\07 - TIM\42 - Acompanhamento Reports Python\02 - Hora hora\Report_Interno.png|Z:\24 - MIS\07 - TIM\42 - Acompanhamento Reports Python\02 - Hora hora\Report_Interno.png

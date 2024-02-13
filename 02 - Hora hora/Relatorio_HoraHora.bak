@@ -1,0 +1,848 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2023.2" RunE2="T">
+  <Nodes>
+    <Node ToolID="49">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="246" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Data  Hora Fim" selected="True" type="DateTime" size="19" />
+            <SelectField field="HORA" selected="True" type="Int64" size="8" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="52">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="246" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="HORA" action="GroupBy" rename="HORA" />
+            <SummarizeField field="Fornecedor" action="GroupBy" rename="Fornecedor" />
+            <SummarizeField field="Fornecedor" action="Count" rename="Registros" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="53">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+        <Position x="318" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SortInfo locale="1046">
+            <Field field="HORA" order="Ascending" />
+          </SortInfo>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>HORA - Crescente</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+    </Node>
+    <Node ToolID="59">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
+        <Position x="318" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <GroupFields>
+            <Field field="HORA" />
+          </GroupFields>
+          <HeaderField field="Fornecedor" />
+          <DataField field="Registros" />
+          <Methods>
+            <Method method="Sum" />
+          </Methods>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="HORA" source="CrossTab:Group:Sum:" type="Int64" />
+            <Field name="ACTYON" source="CrossTab:Header:Fornecedor:ACTYON:Sum:" type="Int64" />
+            <Field name="ASPECT" source="CrossTab:Header:Fornecedor:ASPECT:Sum:" type="Int64" />
+            <Field name="OLOS" source="CrossTab:Header:Fornecedor:OLOS:Sum:" type="Int64" />
+            <Field name="OLOS_AD" source="CrossTab:Header:Fornecedor:OLOS AD:Sum:" type="Int64" />
+            <Field name="Trabbe" source="CrossTab:Header:Fornecedor:Trabbe:Sum:" type="Int64" />
+            <Field name="Vcom" source="CrossTab:Header:Fornecedor:Vcom:Sum:" type="Int64" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
+    </Node>
+    <Node ToolID="62">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+        <Position x="378" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SortInfo locale="1046">
+            <Field field="HORA" order="Ascending" />
+          </SortInfo>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>HORA - Crescente</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+    </Node>
+    <Node ToolID="63">
+      <GuiSettings Plugin="PortfolioPluginsGui.ComposerTable.PortfolioComposerTable">
+        <Position x="618" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TableMode>Basic</TableMode>
+          <GroupingFields orderChanged="False" />
+          <Width>100%</Width>
+          <ShowHeader value="True" />
+          <ShowBarGraph value="False" />
+          <TableFields orderChanged="False">
+            <Field name="HORA" selected="True" Alignment="Center" Alias="TIME" Width="" Places="0" />
+            <Field name="ACTYON" selected="True" Alignment="Center" />
+            <Field name="ASPECT" selected="True" Alignment="Center" />
+            <Field name="OLOS" selected="True" Alignment="Center" />
+            <Field name="OLOS_AD" selected="True" Alignment="Center" />
+            <Field name="Trabbe" selected="True" Alignment="Center" />
+            <Field name="Vcom" selected="True" Alignment="Center" Width="" Places="0" />
+            <Field name="*Unknown" selected="True" Alignment="Right" />
+          </TableFields>
+          <TableStyles>
+            <Style Name="Data" Font="--Segoe UI" Size="9" TextColor="#000000" BackColor="#ffffff" AltColor="#f0f0f0" RowGroup="1" />
+            <Style Name="Header" Font="--Segoe UI" Size="9" TextColor="#000000" BackColor="#dbdbdb" />
+            <Style Name="Borders" Width="2" DataColor="#000000" HeaderColor="#000000" RowBorder="None" BasicColBorder="Default (Use Per Column Setting)" />
+            <Style Name="Table" CellPadding="1" ColumnPadding="1" TableBorder="true" Width="2" BorderColor="#000000" />
+          </TableStyles>
+          <StyleRules />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Tabela básica</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="PortfolioPluginsEngine.dll" EngineDllEntryPoint="AlteryxPortfolioComposerTablePlugin" />
+    </Node>
+    <Node ToolID="64">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="246" y="318" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="Fornecedor" action="GroupBy" rename="Fornecedor" />
+            <SummarizeField field="Fornecedor" action="Count" rename="Registros" />
+            <SummarizeField field="Data  Hora Fim" action="Max" rename="Ultima Ligação" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="69">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="246" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF [Fornecedor] = &quot;Sinergy&quot;&#xA;THEN DateTimeParse([Inicio da ligação],&quot;%d/%m/%y %H:%M:%S&quot;,&quot;Português&quot;)&#xA;ELSE [Data  Hora Fim] ENDIF" field="Data  Hora Fim" size="19" type="DateTime" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Data  Hora Fim = IF [Fornecedor] = "Sinergy"
+THEN DateTimeParse([Inicio da ligaç...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="74">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="306" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="Registros" action="Sum" rename="Total" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="75">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
+        <Position x="318" y="318" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <CartesianMode>Error</CartesianMode>
+          <SelectConfiguration>
+            <Configuration outputConnection="Output">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAppendFields" />
+    </Node>
+    <Node ToolID="76">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="378" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="ToString(([Registros] / [Total]) *100,2) + &quot; %&quot;" field="(%) Percentual" size="2147483647" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[(%) Percentual = ToString(([Registros] / [Total]) *100,2) + " %"
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="77">
+      <GuiSettings Plugin="PortfolioPluginsGui.ComposerTable.PortfolioComposerTable">
+        <Position x="618" y="234" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TableMode>Basic</TableMode>
+          <GroupingFields orderChanged="False" />
+          <Width>100%</Width>
+          <ShowHeader value="True" />
+          <ShowBarGraph value="False" />
+          <TableFields orderChanged="True">
+            <Field name="Fornecedor" selected="True" Alignment="Center" Borders="None" Width="" Alias="Source" />
+            <Field name="Registros" selected="True" Alignment="Center" Borders="None" Alias="Records" />
+            <Field name="(%) Percentual" selected="True" Alignment="Center" Width="" Borders="None" Alias="(%) Percentage" />
+            <Field name="Ultima Ligação" selected="True" Alignment="Center" Borders="None" Width="" Alias="Last Call" />
+            <Field name="*Unknown" selected="True" Alignment="Center" Width="" Places="0" />
+            <Field name="Total" selected="False" />
+          </TableFields>
+          <TableStyles>
+            <Style Name="Data" Font="B-Segoe UI" Size="9" TextColor="#000000" BackColor="#ffffff" AltColor="#f0f0f0" RowGroup="1" />
+            <Style Name="Header" Font="--Segoe UI" Size="9" TextColor="#000000" BackColor="#dbdbdb" />
+            <Style Name="Borders" Width="2" DataColor="#000000" HeaderColor="#000000" RowBorder="None" BasicColBorder="Default (Use Per Column Setting)" />
+            <Style Name="Table" CellPadding="1" ColumnPadding="1" TableBorder="true" Width="1" BorderColor="#000000" />
+          </TableStyles>
+          <StyleRules>
+            <Rule Name="4f99e625-e5df-41bf-b6a1-e2f7981910ea">
+              <RowRule value="True" />
+              <HighPrecedence value="False" />
+              <Field />
+              <Test>Always</Test>
+              <ApplyTo>Data</ApplyTo>
+              <SimpleVar />
+              <SimpleOp>==</SimpleOp>
+              <SimpleConst>1</SimpleConst>
+              <Formula>1</Formula>
+              <Style Justify="Center" />
+              <PrettyName>Centralizar</PrettyName>
+            </Rule>
+            <Rule Name="e568ddcc-b40a-4f8e-9a02-4c7e663985a8">
+              <RowRule value="False" />
+              <HighPrecedence value="False" />
+              <Field>Fornecedor</Field>
+              <Test>Always</Test>
+              <ApplyTo>Data</ApplyTo>
+              <SimpleVar />
+              <SimpleOp>==</SimpleOp>
+              <SimpleConst>1</SimpleConst>
+              <Formula>1</Formula>
+              <Style />
+              <PrettyName>Fornecedor Regra 1</PrettyName>
+            </Rule>
+          </StyleRules>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Tabela básica</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="PortfolioPluginsEngine.dll" EngineDllEntryPoint="AlteryxPortfolioComposerTablePlugin" />
+    </Node>
+    <Node ToolID="79">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+        <Position x="378" y="318" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SortInfo locale="1046">
+            <Field field="Registros" order="Descending" />
+          </SortInfo>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Registros - Decrescente</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+    </Node>
+    <Node ToolID="80">
+      <GuiSettings Plugin="PortfolioPluginsGui.ComposerImage.PortfolioComposerImage">
+        <Position x="618" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ImageMode>File</ImageMode>
+          <Filename>G:\Drives compartilhados\MIS\LAYOUT_TIM\TIM_LOGO.jpg</Filename>
+          <ModifyFilename value="False" />
+          <StopIfNotFound value="True" />
+          <ImageStyle FixedWidth="false" ImageWidth="200" ShowBorder="false" BorderWidth="1" BorderColor="#000000" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="PortfolioPluginsEngine.dll" EngineDllEntryPoint="AlteryxPortfolioComposerImagePlugin" />
+    </Node>
+    <Node ToolID="82">
+      <GuiSettings Plugin="VisualLayout">
+        <Position x="762" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <LayoutFields>
+            <Document>
+              <TempFileType>png</TempFileType>
+              <PortraitMode value="true" />
+              <RenderType>PNG</RenderType>
+              <PaperType bottom="0" height="441.59999999999997" left="0" right="0" top="0" width="547.2">
+                <PageType>Custom</PageType>
+                <MarginType>No Margins</MarginType>
+              </PaperType>
+            </Document>
+            <Layout>
+              <Node fusedChildren="false" key="1" orientation="vertical" repeatDirection="vertical">
+                <Node fusedChildren="false" key="2" orientation="horizontal" repeatDirection="vertical">
+                  <Node connectionName="#1" fieldName="Image" height="42.21875" isFused="false" isLocked="true" key="3" left="0" orientation="horizontal" repeatDirection="vertical" source="Report:Image:" subWidth0="75" subWidthCount="1" top="0" width="75" />
+                  <Node connectionName="#4" fieldName="Text" height="42" isFused="false" isLocked="true" key="4" left="7" orientation="horizontal" repeatDirection="vertical" source="Report:Text:" subWidth0="319" subWidthCount="1" top="0" width="319" />
+                </Node>
+                <Node connectionName="#3" fieldName="Table" height="186" isFused="false" isLocked="true" key="5" left="0" orientation="horizontal" repeatDirection="vertical" source="Report:Table:Basic:" subWidth0="479" subWidthCount="1" top="0" width="479" />
+                <Node connectionName="#2" fieldName="Table" height="320" isFused="false" isLocked="true" key="6" left="0" orientation="horizontal" repeatDirection="vertical" source="Report:Table:Basic:" subWidth0="476" subWidthCount="1" top="20" width="476" />
+              </Node>
+            </Layout>
+            <TempFiles>{"#2":"C:\\Users\\PLAN~1.JAN\\AppData\\Local\\Temp\\Engine_18120_2023621a6626464ab00b11e51750f4c7_\\Engine_10988_aa25c4b5d6f24a419c9e8653daee57f0_.yxdb","#3":"C:\\Users\\PLAN~1.JAN\\AppData\\Local\\Temp\\Engine_18120_2023621a6626464ab00b11e51750f4c7_\\Engine_10988_d0b9c383968e4051a89a40964d104ae2_.yxdb","#1":"C:\\Users\\PLAN~1.JAN\\AppData\\Local\\Temp\\Engine_18120_2023621a6626464ab00b11e51750f4c7_\\Engine_10988_c724a599fba0478285815eb6a52ec51f_.yxdb","#4":"C:\\Users\\PLAN~1.JAN\\AppData\\Local\\Temp\\Engine_18120_2023621a6626464ab00b11e51750f4c7_\\Engine_10988_9f0d7e34807943b1a7e32157fd3132ec_.yxdb"}</TempFiles>
+            <OriginalSnippets>{"#3":{"Table":["C:\\Users\\plan.janathan\\AppData\\Local\\Temp\\Alteryx_10988_bcb917e7-392b-4386-8af4-17195bbe08ac_\\Alteryx_10988_5f108219-b7ae-4678-8e06-e188940b2b7b_.html"]},"#4":{"Text":["C:\\Users\\plan.janathan\\AppData\\Local\\Temp\\Alteryx_10988_bcb917e7-392b-4386-8af4-17195bbe08ac_\\Alteryx_10988_47aa405b-bda3-4eac-b502-d75472a79354_.html"]},"#1":{"Image":["C:\\Users\\plan.janathan\\AppData\\Local\\Temp\\Alteryx_10988_bcb917e7-392b-4386-8af4-17195bbe08ac_\\Alteryx_10988_59412df5-0c01-4157-ab2d-3ecfb1d35239_.png"]},"#2":{"Table":["C:\\Users\\plan.janathan\\AppData\\Local\\Temp\\Alteryx_10988_bcb917e7-392b-4386-8af4-17195bbe08ac_\\Alteryx_10988_976e27a7-3572-4f91-b51b-dc00570e3b69_.html"]}}</OriginalSnippets>
+            <OriginalThumbnails>{"#3":{"Table":["C:\\Users\\plan.janathan\\AppData\\Local\\Temp\\Alteryx_10988_bcb917e7-392b-4386-8af4-17195bbe08ac_\\Alteryx_10988_9a30cdc8-bc92-41ca-97e7-4276b062d516_.html"]},"#4":{},"#1":{"Image":["C:\\Users\\plan.janathan\\AppData\\Local\\Temp\\Alteryx_10988_bcb917e7-392b-4386-8af4-17195bbe08ac_\\Alteryx_10988_0f3021e6-15cb-431b-9053-06324d0a5fda_.png"]},"#2":{"Table":["C:\\Users\\plan.janathan\\AppData\\Local\\Temp\\Alteryx_10988_bcb917e7-392b-4386-8af4-17195bbe08ac_\\Alteryx_10988_2211cfc8-d630-46ee-b995-d1ceb1aff5f3_.html"]}}</OriginalThumbnails>
+            <AllowResizing>true</AllowResizing>
+            <CanJoin>false</CanJoin>
+            <VisFolderPath>C:\Users\plan.janathan\AppData\Local\Temp\Alteryx_10988_bcb917e7-392b-4386-8af4-17195bbe08ac_</VisFolderPath>
+            <NumDeletions>0</NumDeletions>
+            <NumTinaToggleUses>0</NumTinaToggleUses>
+            <NumSnippetMoves>1</NumSnippetMoves>
+            <NumSnippetRearrangements>0</NumSnippetRearrangements>
+            <NumIncomingConnections>4</NumIncomingConnections>
+          </LayoutFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="PortfolioPluginsEngine.dll" EngineDllEntryPoint="ComposerVisualLayout" />
+    </Node>
+    <Node ToolID="84">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="882" y="234" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\PLAN~1.JAN\AppData\Local\Temp\Engine_18120_2023621a6626464ab00b11e51750f4c7_\Engine_18120_a14fe9b30a245642b72614378ea0863c~.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Relatório</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="87">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="546" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="1" />
+          <Fields>
+            <Field name="data" />
+            <Field name="Field2" />
+          </Fields>
+          <Data>
+            <r>
+              <c>2023-01-01 00:00:00</c>
+              <c />
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+    <Node ToolID="88">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="546" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="DateTimeNow()" field="data" size="19" type="DateTime" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[data = DateTimeNow()
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="89">
+      <GuiSettings Plugin="PortfolioPluginsGui.ComposerText.PortfolioComposerText">
+        <Position x="618" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Images />
+          <Output>Text</Output>
+          <HeaderMode value="False" />
+          <RawMode value="False" />
+          <ValidatePCXML value="True" />
+          <Message />
+          <RichTextMode value="True" />
+          <RichTextString><![CDATA[{\rtf1\ansi\ansicpg1252\deff0\deflang1046{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+\viewkind4\uc1\pard\qc\b\fs24\par
+\par
+  Report Hora Hora [data:A]\b0\par
+}
+]]></RichTextString>
+          <Styles>
+            <Style Name="TextStyle" />
+          </Styles>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[
+
+  Report Hora Hora [data:A]]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="PortfolioPluginsEngine.dll" EngineDllEntryPoint="AlteryxPortfolioComposerTextPlugin" />
+    </Node>
+    <Node ToolID="90">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="30" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="1" />
+          <Fields>
+            <Field name="data" />
+          </Fields>
+          <Data>
+            <r>
+              <c>2023-01-01</c>
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+    <Node ToolID="91">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="102" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="ToDate(DateTimeToday())&#xA;//'2024-01-03'" field="dtini" size="1073741823" type="V_WString" />
+            <FormulaField expression="ToDate(DateTimeToday())&#xA;//'2024-01-03'" field="dtfim" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>dtini = ToDate(DateTimeToday())
+//'2024-01-03'
+dtfim = ToDate(DateTimeToday())
+/...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="92">
+      <GuiSettings>
+        <Position x="102" y="114" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Folder Browse (9)">Z:\24 - MIS\07 - TIM\02 - Hora a Hora\01 - Output Bases\Relatorio Analitico - FORMATO ALTERYX</Value>
+          <Value name="Explorador de Arquivos (26)">Z:\24 - MIS\07 - TIM\02 - Hora a Hora\01 - Output Bases\Relatorio Analitico - FORMATO ALTERYX\Acionamentos Analitico Dia2023-09-01.yxdb</Value>
+          <Value name="Caixa de Seleção (53)">True</Value>
+          <Value name="Caixa de Seleção (54)">False</Value>
+          <Value name="Check Box (66)">True</Value>
+          <Value name="ControlParams"><![CDATA[Parâmetro de Controle (22)=dtini
+Parâmetro de Controle (23)=dtfim
+]]></Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="saida">
+          <RecordInfo>
+            <Field name="cust code" size="30" source="(Multiple Sources)" type="V_String" />
+            <Field name="Inicio da ligação" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="Data  Hora Fim" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="Usuario de inclusão" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="Tabulação" size="255" source="(Multiple Sources)" type="V_WString" />
+            <Field name="Telefone Acionado" size="60" source="File: (Multiple Sources)" type="V_WString" />
+            <Field name="Valor cliente" source="Formula: (Multiple Sources)" type="Double" />
+            <Field name="Valor acordo/Promessa" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="Produto" size="13" source="(Multiple Sources)" type="V_String" />
+            <Field name="Segmento" size="28" source="(Multiple Sources)" type="V_String" />
+            <Field name="Agin" size="20" source="(Multiple Sources)" type="V_String" />
+            <Field name="Perfil" size="7" source="(Multiple Sources)" type="V_String" />
+            <Field name="Ativação" size="30" source="(Multiple Sources)" type="V_String" />
+            <Field name="Data Acionamento" size="1073741823" source="Formula: DateTimeToday()&#xA;&#xA;//&quot;2023-11-11&quot;" type="V_WString" />
+            <Field name="HORA" size="1073741823" source="Formula: (Multiple Sources)" type="V_WString" />
+            <Field name="PRIMEIRO DATA DO MES" size="1073741823" source="Formula: ToDate(DateTimeFirstOfMonth())" type="V_WString" />
+            <Field name="Filtro Ativação" size="1073741823" source="Formula: (Multiple Sources)" type="V_WString" />
+            <Field name="Discagens" source="(Multiple Sources)" type="Double" />
+            <Field name="Atendidas" source="Formula: (Multiple Sources)" type="Double" />
+            <Field name="CPC" source="Formula: (Multiple Sources)" type="Double" />
+            <Field name="CPCA" source="Formula: (Multiple Sources)" type="Double" />
+            <Field name="Efetivo" source="Formula: (Multiple Sources)" type="Double" />
+            <Field name="Errado" source="Formula: (Multiple Sources)" type="Double" />
+            <Field name="Improdutiva" source="Formula: (Multiple Sources)" type="Double" />
+            <Field name="Muda" source="Formula: (Multiple Sources)" type="Double" />
+            <Field name="Secretaria" source="Formula: (Multiple Sources)" type="Double" />
+            <Field name="Sucesso" source="Formula: (Multiple Sources)" type="Double" />
+            <Field name="OPERAÇÃO" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="Alega pagamento" source="Formula: (Multiple Sources)" type="Double" />
+            <Field name="Fornecedor" size="1073741823" source="Formula: (Multiple Sources)" type="V_WString" />
+            <Field name="R$ Atendidas" scale="2" size="19" source="Formula: if [Atendidas] = 1 then [Valor cliente] else 0 endif" type="FixedDecimal" />
+            <Field name="R$ CPC" scale="2" size="19" source="Formula: if [CPC] = 1 then [Valor cliente] else 0 endif" type="FixedDecimal" />
+            <Field name="R$ Alega" scale="2" size="19" source="Formula: if [Alega pagamento] = 1 then [Valor cliente] else 0 endif" type="FixedDecimal" />
+            <Field name="R$ Sucesso" scale="2" size="19" source="Formula: if [Sucesso] = 1 then [Valor cliente] else 0 endif" type="FixedDecimal" />
+            <Field name="R$ CPCA" scale="2" size="19" source="Formula: if [CPCA] = 1 then [Valor cliente] else 0 endif" type="FixedDecimal" />
+            <Field name="CAMPO CHAVE" size="1073741823" source="Formula: [cust code]+[Inicio da ligação]+[Data  Hora Fim]+[Usuario de inclusão]+[Tabulação]+[Telefone Acionado]" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="File.yxmc" />
+    </Node>
+    <Node ToolID="93">
+      <GuiSettings Plugin="PortfolioPluginsGui.ComposerRender.PortfolioComposerRender">
+        <Position x="966" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFileType />
+          <OutputFile>Z:\24 - MIS\07 - TIM\42 - Acompanhamento Reports Python\02 - Hora hora\Report_Interno.png</OutputFile>
+          <BatchMode value="False" />
+          <DataField>Layout</DataField>
+          <Separator>HorizRule</Separator>
+          <EmbedDependencies value="False" />
+          <ShowHeader value="False" />
+          <ShowFooter value="False" />
+          <PdfCefOutput value="False" />
+          <PortraitMode value="True" />
+          <PaperType Width="331" Height="340" Left="0" Right="0" Top="0" Bottom="0" />
+          <DefaultStyles>
+            <Style Name="TextStyle" FontName="Segoe Fluent Icons" FontSize="14" Justify="Center" ForeColor="#000000" Locale="1046" />
+          </DefaultStyles>
+          <PNGResolution>2</PNGResolution>
+          <PNGLargerAction>squeeze</PNGLargerAction>
+          <PNGLargerThanPageChoice>warning</PNGLargerThanPageChoice>
+          <PNGTransparentBG value="False" />
+          <PNGBackColor value="#ffffff" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="PortfolioPluginsEngine.dll" EngineDllEntryPoint="AlteryxPortfolioComposerRenderPlugin" />
+    </Node>
+    <Node ToolID="94">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BlockUntilDone.BlockUntilDone">
+        <Position x="882" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBlockUntilDone" />
+    </Node>
+    <Node ToolID="95">
+      <GuiSettings Plugin="JupyterCode">
+        <Position x="966" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Notebook><![CDATA[{"cells":[{"cell_type":"markdown","metadata":{"ayx":{"cell_css":"border: 3px solid #357; margin: 4px; background: #fbffff","contents_keyword":"Alteryx.help()","label":"info"}},"source":["Run `Alteryx.help()` for info about useful functions.  \n","i.e., `Alteryx.read(\"#1\")`, `Alteryx.write(df,1)`, `Alteryx.getWorkflowConstant(\"Engine.WorkflowDirectory\")`"]},{"cell_type":"code","execution_count":1,"metadata":{"ayx":{"cell_css":"border: 1px solid #58a; margin: 2px;","contents_keyword":"installPackages","label":"deps"}},"outputs":[],"source":["# List all non-standard packages to be imported by your \n","# script here (only missing packages will be installed)\n","from ayx import Package\n","#Package.installPackages(['pandas','numpy'])"]},{"cell_type":"code","execution_count":2,"metadata":{},"outputs":[],"source":["from ayx import Alteryx\n","import os\n","import requests\n","from datetime import datetime\n","def bot():\n","     \n","    return \"6544006198:AAG8OQSnoIgUJCRzh8mBjQomhWDaqJ6guCM\" , '-1002120005947'\n","\n","def send_message(token, chat_id, message):\n","    try:\n","        # Define um dicionário 'data' com os parâmetros necessários para enviar a mensagem\n","        data = {\"chat_id\": chat_id, \"text\": message}\n","        \n","        # Monta a URL da API do Telegram com o token do bot\n","        url = \"https://api.telegram.org/bot{}/sendMessage\".format(token)\n","        \n","        # Envia a requisição POST para a URL com os dados da mensagem\n","        requests.post(url, data)\n","    except Exception as e:\n","        # Captura e imprime qualquer erro que ocorra durante o envio\n","        print(\"Erro no sendMessage:\", e)\n","\n","def read_log(path):\n","    \n","# Abra o arquivo de log em modo de leitura\n","    try:\n","        with open(path, 'r', encoding='utf-8') as arquivo_log:\n","            linhas = arquivo_log.readlines()\n","    except UnicodeDecodeError:\n","        print(\"Não foi possível ler usando UTF-8. Tentando outras codificações.\")\n","\n","        # Tente ler o arquivo usando Latin-1\n","        with open(path, 'r', encoding='latin-1') as arquivo_log:\n","            linhas = arquivo_log.readlines()\n","\n","    # Use uma função lambda para filtrar as linhas que começam com \"Finished\"\n","    finished_lines = str(list(filter(lambda linha: linha.startswith('Finished'), linhas)))\n","\n","    # Imprima as linhas que começam com \"Error\"\n","    error_lines = str(list(filter(lambda linha: linha.startswith('Error'), linhas)))\n","    if error_lines == '[]':\n","\n","        error_lines = 'None'\n","        \n","    else:\n","        error_lines = error_lines.replace('[','').replace(']','')\n","\n","    finished_lines = finished_lines.replace('[','').replace(']','')\n","\n","    return error_lines, finished_lines  \n","\n","def sender_photo(token,chat,caminho):\n","    # URL da API do Telegram para enviar a foto\n","    url = f'https://api.telegram.org/bot{token}/sendPhoto'\n","    \n","    # Parâmetros da requisição\n","    params = {\n","        'chat_id': chat,\n","    }\n","\n","    # Abrir o arquivo da foto em modo binário\n","    with open(caminho, 'rb') as foto:\n","        # Enviar a foto como um arquivo\n","        response = requests.post(url, params=params, files={'photo': foto})\n","\n","    #---------------------------- DADOS INSERIDOS----------------------\n","    # Verifique a resposta\n","    if response.status_code == 200:\n","        print(\"Foto enviada com sucesso!\")\n","    else:\n","        print(\"Erro ao enviar a foto:\", response.text)\n","\n","\n","token, chat = bot()\n","log = r\"\\\\192.168.10.21\\saturno\\24 - MIS\\07 - TIM\\02 - Hora a Hora\\00 - Projeto Alteryx\\JCA\\Fluxo Hora a Hora + JCA.log.txt\"\n","\n","erros_lines, finished_lines = read_log(log)\n","datetimenow = datetime.now().strftime('%Y-%m-%d %H:%M:%S')\n","Mensagem = f\"\"\"⚠️ HORA HORA {datetimenow}\\n \n"," \n","            ✅ Finished : {finished_lines} \n","            ❌   Error : {erros_lines}\n","            \"\"\"\n","\n","send_message(token=token, \n","                chat_id= chat,\n","                message=Mensagem)\n","imag_path =r\"\\\\192.168.10.21\\saturno\\24 - MIS\\07 - TIM\\42 - Acompanhamento Reports Python\\02 - Hora hora\\Report_Interno.png\"\n","sender_photo(token=token, chat= chat\n","            , caminho= imag_path)\n","    "]}],"metadata":{"kernelspec":{"display_name":"designerbasetools_venv","language":"python","name":"designerbasetools_venv"},"language_info":{"codemirror_mode":{"name":"ipython","version":3},"file_extension":".py","mimetype":"text/x-python","name":"python","nbconvert_exporter":"python","pygments_lexer":"ipython3","version":"3.8.16"}},"nbformat":4,"nbformat_minor":2}]]></Notebook>
+          <WorkflowName>c:\users\plan.janathan\appdata\local\microsoft\windows\inetcache\ie\4fuohqn8\relatorio hxh[1].yxmd</WorkflowName>
+          <JupyterProduction>false</JupyterProduction>
+          <vEnvName>designerbasetools_venv</vEnvName>
+          <DefaultVenv>1</DefaultVenv>
+          <productionModeScript />
+          <Port>65312</Port>
+          <JupyterGuidDir>6e0b2afa48d0eb88c595b70b8652178e</JupyterGuidDir>
+          <JupyterGuidCopy />
+          <LastExecutedByEngineVersion>2023.2.1.51</LastExecutedByEngineVersion>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxJupyterPluginEngine.dll" EngineDllEntryPoint="AlteryxJupyter" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="49" Connection="Output" />
+      <Destination ToolID="69" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="49" Connection="Output" />
+      <Destination ToolID="52" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="52" Connection="Output" />
+      <Destination ToolID="53" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="53" Connection="Output" />
+      <Destination ToolID="59" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="59" Connection="Output" />
+      <Destination ToolID="62" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="62" Connection="Output" />
+      <Destination ToolID="63" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="63" Connection="Output" />
+      <Destination ToolID="82" Connection="Input" />
+    </Connection>
+    <Connection name="#3">
+      <Origin ToolID="77" Connection="Output" />
+      <Destination ToolID="82" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="80" Connection="Output" />
+      <Destination ToolID="82" Connection="Input" />
+    </Connection>
+    <Connection name="#4">
+      <Origin ToolID="89" Connection="Output" />
+      <Destination ToolID="82" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="64" Connection="Output" />
+      <Destination ToolID="74" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="64" Connection="Output" />
+      <Destination ToolID="75" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="74" Connection="Output" />
+      <Destination ToolID="75" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="69" Connection="Output" />
+      <Destination ToolID="64" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="75" Connection="Output" />
+      <Destination ToolID="76" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="76" Connection="Output" />
+      <Destination ToolID="79" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="79" Connection="Output" />
+      <Destination ToolID="77" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="82" Connection="Output" />
+      <Destination ToolID="84" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="82" Connection="Output" />
+      <Destination ToolID="94" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="87" Connection="Output" />
+      <Destination ToolID="88" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="88" Connection="Output" />
+      <Destination ToolID="89" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="90" Connection="Output" />
+      <Destination ToolID="91" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="91" Connection="Output" />
+      <Destination ToolID="92" Connection="Control" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="92" Connection="saida" />
+      <Destination ToolID="49" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="94" Connection="Output" />
+      <Destination ToolID="93" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="94" Connection="Output2" />
+      <Destination ToolID="95" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="False" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Relatorio_HoraHora</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="2da6463c-60da-4ef0-8f4c-7d0ed50e60fb" />
+      <Telemetry>
+        <PreviousWorkflowId value="df660e72-06ae-416d-a7e1-9b2e662eb46b" />
+        <OriginWorkflowId value="db429f8b-2112-47f3-a9d0-34a7ecb4e24e" />
+      </Telemetry>
+      <PlatformWorkflowId value="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="False" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
